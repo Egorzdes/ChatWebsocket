@@ -1,0 +1,31 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat Application</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.2/sockjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+        <script type="module" src="./chat.js"></script>
+    </head>
+    <body>
+    <div id="chat-wrapper">
+        <div id="login-container">
+            <input id="username-input" type="text" placeholder="Enter your name">
+            <button onclick="setUsername()">Set Username</button>
+        </div>
+        <div id="chat-container" style="display: none;">
+            <div id="messages"></div>
+            <div id="input-container">
+                <span id="attach-file" onclick="document.getElementById('file-input').click();">
+                    📎
+                </span>
+                <input id="file-input" type="file" style="display: none;">
+                <input id="message-input" type="text" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>

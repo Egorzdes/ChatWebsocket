@@ -1,0 +1,38 @@
+# Настройки Spring Boot
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop  # auto-creation of tables, change to 'validate' or 'none' in production
+    show-sql: true  # Показывать SQL-запросы в логах
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    user:
+      name: admin    # Укажите ваш логин
+      password: admin  # Укажите ваш пароль
+
+# Настройки логирования
+logging:
+  level:
+    org:
+      hibernate: INFO  # Логирование Hibernate
+      springframework: INFO  # Логирование Spring
+
+# Настройки WebSocket (опционально, в большинстве случаев использовать дефолтные значения)
+websocket:
+  message-broker:
+    relay-host: localhost
+    relay-port: 61613  # Это пример порта, меняйте при необходимости
+  stomp:
+    endpoints:
+      /chat:  # Определяет endpoint для WebSocket
+        allowed-origins: "*"  # Указывает, какие источники могут подключаться, "*" означает все
+        with-sockjs: true  # Использование SockJS
+
+# Настройка порта приложения
+server:
+  port: 8880

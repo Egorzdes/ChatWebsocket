@@ -1,0 +1,84 @@
+/* styles.css */
+
+/* Center the chat wrapper vertically and horizontally */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+#chat-wrapper {
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the messages container */
+#messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid #dddddd;
+}
+
+/* Style individual messages */
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.message-content {
+    font-size: 14px;
+}
+
+.message-timestamp {
+    font-size: 12px;
+    color: #999999;
+}
+
+/* Style the input container */
+#input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #dddddd;
+    background-color: #f9f9f9;
+}
+
+/* Style the attach file icon */
+#attach-file {
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Style the message input */
+#message-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Style the send button */
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
