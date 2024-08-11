@@ -37,6 +37,12 @@ body, html {
 
 .message-content {
     font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.message-content a:hover {
+    text-decoration: underline;
 }
 
 .message-timestamp {

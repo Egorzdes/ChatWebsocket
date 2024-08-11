@@ -148,21 +148,26 @@ function displayMessage(message) {
     var messageDiv = document.createElement('div');
     messageDiv.className = 'message';
 
-    if (message.content) {
-        var contentDiv = document.createElement('div');
-        contentDiv.className = 'message-content';
-        contentDiv.textContent = `${message.sender}: ${message.content}`;
-        messageDiv.appendChild(contentDiv);
-    }
+    var contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
 
     if (message.fileId) {
+        // Создаем ссылку на файл
         var fileLink = document.createElement('a');
-        fileLink.href = `/api/chat/files/${message.fileId}`; // Обновите путь к файлу
-        fileLink.textContent = "Download " + (message.fileName || 'file');
-        fileLink.setAttribute("download", message.fileName); // Опционально: предлагает имя файла для скачивания
-        messageDiv.appendChild(fileLink);
+        fileLink.href = `/api/chat/files/${message.fileId}`; // Путь к файлу
+        fileLink.textContent = message.fileName || 'file'; // Имя файла
+        fileLink.setAttribute('download', message.fileName); // Предлагает имя файла для скачивания
+
+        // Формируем содержимое сообщения
+        contentDiv.innerHTML = `${message.sender}: File uploaded: <a href="${fileLink.href}" download>${fileLink.textContent}</a>`;
+    } else {
+        // Отображаем просто текст сообщения
+        contentDiv.textContent = `${message.sender}: ${message.content}`;
     }
 
+    messageDiv.appendChild(contentDiv);
+
+    // Отображаем метку времени
     var timestampDiv = document.createElement('div');
     timestampDiv.className = 'message-timestamp';
     timestampDiv.textContent = formatTimestamp(message.timestamp);
